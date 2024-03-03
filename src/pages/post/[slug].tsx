@@ -15,6 +15,7 @@ import {
 } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 import { formatDate } from '~/utils'
+import SanityImage from '~/components/SanityImage'
 
 interface Query {
   [key: string]: string
@@ -50,6 +51,12 @@ export default function ProjectSlugRoute(
   const [post] = useLiveQuery(props.post, postBySlugQuery, {
     slug: props.post.slug.current,
   })
+
+  const components = {
+    types: {
+      image: SanityImage,
+    },
+  }
 
   return (
     <Container>
