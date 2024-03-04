@@ -1,4 +1,4 @@
-import type { PortableTextBlock, Image } from '@portabletext/types'
+import type { PortableTextBlock } from '@portabletext/types'
 import type { ImageAsset, Slug } from '@sanity/types'
 import groq from 'groq'
 import { type SanityClient } from 'next-sanity'
@@ -50,7 +50,12 @@ export interface Post {
   body: (PortableTextBlock | ImageWithDimensions)[]
 }
 
-export interface ImageWithDimensions extends Image {
+export interface ImageWithDimensions {
+  _type: string
+  asset: {
+    _ref: string
+    _type: string
+  }
   width: number
   height: number
 }

@@ -3,9 +3,9 @@
   "scripts": {
     "build": "next build",
     "dev": "next",
-    "format": "npx prettier --write . --ignore-path .gitignore",
+    "format": "pnpx prettier --write . --ignore-path .gitignore",
     "lint": "next lint -- --ignore-path .gitignore",
-    "lint:fix": "npm run format && npm run lint -- --fix",
+    "lint:fix": "pnpm run format && pnpm run lint -- --fix",
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
@@ -14,11 +14,16 @@
     "singleQuote": true
   },
   "dependencies": {
+    "@next/env": "^14.1.0",
     "@portabletext/react": "3.0.11",
+    "@portabletext/types": "^2.0.8",
     "@sanity/client": "6.12.3",
     "@sanity/demo": "1.0.2",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/types": "^3.30.1",
     "@sanity/vision": "3.28.0",
     "@tailwindcss/typography": "0.5.10",
+    "groq": "^3.30.1",
     "next": "14.1.0",
     "next-sanity": "5.5.11",
     "next-sanity-image": "^6.1.1",
