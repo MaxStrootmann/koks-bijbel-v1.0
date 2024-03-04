@@ -2,11 +2,13 @@ import Image from 'next/image'
 import { urlForImage } from '~/lib/sanity.image'
 
 export default function SanityImage({
-  value,
-  isInline,
+  image,
+  width,
+  height,
 }: {
-  value: any
-  isInline: boolean
+  image: any
+  width: number
+  height: number
 }) {
   return (
     <Image

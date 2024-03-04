@@ -1,4 +1,7 @@
-import { PortableText } from '@portabletext/react'
+import {
+  PortableText,
+  PortableTextTypeComponentProps,
+} from '@portabletext/react'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 import { useLiveQuery } from 'next-sanity/preview'
@@ -15,7 +18,6 @@ import {
 } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 import { formatDate } from '~/utils'
-import SanityImage from '~/components/SanityImage'
 
 interface Query {
   [key: string]: string
@@ -54,9 +56,19 @@ export default function ProjectSlugRoute(
 
   const components = {
     types: {
-      image: SanityImage,
+      image: ({ value }: PortableTextTypeComponentProps<any>) => (
+        <Image
+          className="post__cover"
+          src={urlForImage(value).url()}
+          height={value.height}
+          width={value.width}
+          sizes="100vw"
+          alt=""
+        />
+      ),
     },
   }
+  console.log(post)
 
   return (
     <Container>
@@ -65,8 +77,9 @@ export default function ProjectSlugRoute(
           <Image
             className="post__cover"
             src={urlForImage(post.mainImage).url()}
-            height={231}
-            width={367}
+            height={post.mainImage.height}
+            width={post.mainImage.width}
+            sizes="100vw"
             alt=""
           />
         ) : (
@@ -77,7 +90,7 @@ export default function ProjectSlugRoute(
           <p className="post__excerpt">{post.excerpt}</p>
           <p className="post__date">{formatDate(post._createdAt)}</p>
           <div className="post__content">
-            <PortableText value={post.body} />
+            <PortableText components={components} value={post.body} />
           </div>
         </div>
       </section>
