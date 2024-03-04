@@ -59,7 +59,7 @@ export default function ProjectSlugRoute(
     types: {
       image: ({ value }: PortableTextTypeComponentProps<any>) => (
         <Image
-          className="h-svh object-contain"
+          className="h-svh md:h-auto md:w-2/3 object-contain my-2"
           src={urlForImage(value).url()}
           height={value.height}
           width={value.width}
