@@ -1,7 +1,8 @@
 import Head from 'next/head'
-import { NextStudio } from 'next-sanity/studio'
 import { metadata } from 'next-sanity/studio/metadata'
 import config from 'sanity.config'
+import { StudioProvider, StudioLayout } from 'sanity'
+import { NextStudio } from 'next-sanity/studio'
 
 export default function StudioPage() {
   return (
@@ -11,7 +12,11 @@ export default function StudioPage() {
           <meta key={key} name={key} content={value} />
         ))}
       </Head>
-      <NextStudio config={config} unstable_globalStyles />
+      <NextStudio config={config} unstable_globalStyles>
+        <StudioProvider config={config}>
+          <StudioLayout />
+        </StudioProvider>
+      </NextStudio>
     </>
   )
 }

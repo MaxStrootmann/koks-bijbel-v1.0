@@ -1,5 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
+function MyStringInput(props) {
+  return <div className="">{props.renderDefault(props)}</div>
+}
 export default defineType({
   name: 'post',
   title: 'Artikel',
@@ -38,6 +41,7 @@ export default defineType({
       name: 'body',
       title: 'Inhoud',
       type: 'array',
+      components: { item: MyStringInput },
       of: [
         { type: 'block' },
         { type: 'image' }, // Add image block type

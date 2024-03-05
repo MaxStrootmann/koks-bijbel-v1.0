@@ -23,6 +23,9 @@ dependencies:
   '@sanity/image-url':
     specifier: ^1.0.2
     version: 1.0.2
+  '@sanity/locale-nl-nl':
+    specifier: ^1.1.4
+    version: 1.1.4(sanity@3.28.0)
   '@sanity/types':
     specifier: ^3.30.1
     version: 3.30.1
@@ -1452,6 +1455,14 @@ packages:
       react: 18.2.0
       react-copy-to-clipboard: 5.1.0(react@18.2.0)
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@sanity/locale-nl-nl@1.1.4(sanity@3.28.0):
+    resolution: {integrity: sha512-9RIiCJHYhBp1+Z8VXXiICHvYbw/I0pHAjT6L0gF4Tp9d5/9DFgrwJKRnvZFK98a/Ysi4qOGRMYCNy5lVS9kzAA==}
+    peerDependencies:
+      sanity: ^3.22.0
+    dependencies:
+      sanity: 3.28.0(@types/react@18.2.55)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
     dev: false
 
   /@sanity/logos@2.1.6(@sanity/color@3.0.0)(react@18.2.0):
